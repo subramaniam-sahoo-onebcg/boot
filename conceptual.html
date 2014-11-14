@@ -11,7 +11,7 @@
             }
         </style>
     </head>
-    <body ng-controller="exchangeRate">
+    <body ng-controller="exchangeRate as exc">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -19,16 +19,16 @@
 
                         <div class="form-group">
                             <label class="">Amount</label>
-                            <input class="form-control" type="number" ng-model="amount" />
+                            <input class="form-control" type="number" ng-model="exc.amount" />
                         </div>
                         <div class="form-group">
                             <label class="">Cost</label>
-                            <select class="form-control"  ng-model="baseCurr" >
-                                <option ng-repeat="c in Curr">{{ c }}</option>
+                            <select class="form-control"  ng-model="exc.baseCurr" >
+                                <option ng-repeat="c in exc.Curr">{{ c}}</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <span ng-repeat="c in Curr">{{ calculateExchangeRate(c) | currency:c }} </span>
+                            <span ng-repeat="c in exc.Curr">{{ exc.total(c) | currency:c}} </span>
                         </div>
                     </form>
                 </div>
@@ -36,5 +36,6 @@
         </div>
         <script src="js/angular.min.js"></script>
         <script src="js/concept.js"></script>
+        <script src="js/services.js"></script>
     </body>
 </html>   

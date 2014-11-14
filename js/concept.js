@@ -1,13 +1,12 @@
-var conceptual = angular.module('conceptual', []);
+var conceptual = angular.module('conceptual', ['finance']);
 
-conceptual.controller('exchangeRate', function($scope) {
-    $scope.amount = 1;
-    $scope.baseCurr = 'INR';
-    $scope.Curr = ['EUR', 'USD', 'INR'];
-    $scope.forExch = {'EUR': 0.013, 'USD': 0.016, 'INR': 1};
-    $scope.calculateExchangeRate = function(Curr) {
-        return  ($scope.forExch[$scope.baseCurr] / $scope.forExch[Curr]) * $scope.amount;
-    };
-});
+conceptual.controller('exchangeRate', ['currencyConverter', function(currencyConverter) {
+        this.amount = 1;
+        this.baseCurr = 'INR';
+        this.Curr = currencyConverter.Curr;
 
+        this.total = function(Curr) {
+            return currencyConverter.calculateExchangeRate(this.baseCurr, this.amount, Curr);
+        };
 
+    }]);
