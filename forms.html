@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="conceptual">
+    <head>
+        <meta charset="UTF-8">
+        <title>Example of Twitter Bootstrap 3 Simple Tables</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body ng-controller="exchangeRate as exc">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <form class="form">
+                        <div class="form-group">
+                            <label class="">Name</label>
+                            <input class="form-control" type="number" ng-model="exc.amount" />
+                        </div>
+                        <div class="form-group">
+                            <label class="">Email</label>
+                            <input class="form-control" type="number" ng-model="exc.amount" />
+                        </div>
+                        <div class="form-group">
+                            <label class="radio-inline">Male
+                                <input type="radio" ng-model="exc.amount" /></label>
+
+                            <label class="radio-inline">Female
+                                <input type="radio" ng-model="exc.amount" /></label>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/angular.min.js"></script>
+        <script src="js/forms.js"></script>
+    </body>
+</html>   
